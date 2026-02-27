@@ -68,6 +68,9 @@ pub(crate) struct PersistedState {
 /// A type alias for `Events` with the default maximum number of subscriptions.
 pub type DefaultEvents = Events<DEFAULT_BYTES_PER_BUF>;
 
+/// A constant representing the absence of events.
+pub const NO_EVENTS: Option<&'static Events<0, NoopRawMutex>> = None;
+
 /// This is the event queue system, it lets you publish Matter Events into a priority queue,
 /// and allows subscribers and remote clients to read the data you've published.
 ///
