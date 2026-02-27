@@ -35,7 +35,7 @@ use rs_matter::dm::clusters::on_off::{self, test::TestOnOffDeviceLogic, OnOffHoo
 use rs_matter::dm::devices::test::{DAC_PRIVKEY, TEST_DEV_ATT, TEST_DEV_COMM, TEST_DEV_DET};
 use rs_matter::dm::devices::DEV_TYPE_ON_OFF_LIGHT;
 use rs_matter::dm::endpoints;
-use rs_matter::dm::events::DefaultEvents;
+use rs_matter::dm::events::{DefaultEvents, NO_EVENTS};
 use rs_matter::dm::networks::unix::UnixNetifs;
 use rs_matter::dm::subscriptions::DefaultSubscriptions;
 use rs_matter::dm::IMBuffer;
@@ -139,7 +139,7 @@ fn run() -> Result<(), Error> {
         &crypto,
         buffers,
         subscriptions,
-        events,
+        NO_EVENTS,
         dm_handler(rand, &on_off_handler),
     );
 
